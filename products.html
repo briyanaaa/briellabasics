@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>briellabasics</title>
+  <link rel="stylesheet" href="navigationbar.css">
+  <link rel="icon" type="image/x-icon" href="logo.png">
+</head>
+<style>
+  .product-table {
+    width: 95%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+  .product {
+    background-color: #E0DDD7;
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .product-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    border: 4px solid black;
+  }
+
+  .product-name,
+  .product-price {
+    margin-top: 10px;
+    font-size: 17px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+  }
+
+  .product-color,
+  .product-size,
+  .product-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+  }
+
+  .add-to-cart {
+    margin-top: 15px;
+    padding: 8px 30px;
+    background-color: #000000;
+    color: #E0DDD7;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+
+  .size-option {
+    margin-left: 5px;
+    padding: 3px 15px;
+    background-color: #E0DDD7;
+    color: #000000;
+    border: 2px solid black;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  }
+
+  .size-option:hover {
+    background-color: #333;
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+  .add-to-cart:hover {
+    background-color: #4f4f4f;
+  }
+
+  .product-color {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .option1-circle,
+  .option2-circle,
+  .option3-circle {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .option1-circle {
+    background: #A5715E;
+  }
+
+  .option2-circle {
+    background: #000000;
+  }
+
+  .option3-circle {
+    background: #ffffff;
+  }
+
+  .option1-circle:hover,
+  .option2-circle:hover,
+  .option3-circle:hover {
+    transform: scale(1.1);
+  }
+
+  input[type="number"] {
+    width: 50px;
+    padding: 2px;
+    background-color: #ffffff;
+    border: 1.5px solid #000000;
+    margin-left: 5px;
+    font-weight: bold;
+    text-align: center;
+  }
+</style>
+<body bgcolor="#E0DDD7">
+  <ul>
+    <div class="left-side">
+      <li class="shopname">briellabasics</li>
+    </div>
+    <div class="right-side">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="aboutus.html">ABOUT US</a></li>
+      <li><a href="products.html">PRODUCTS</a></li>
+      <li><a href="cart.html">CART</a></li>
+      <li><a href="contactus.html">CONTACT US</a></li>
+    </div>
+  </ul>
+  <center>
+    <br><br>
+    <table class="product-table">
+      <tr>
+        <td class="product">
+          <img src="s4.png" alt="Product Image" class="product-image">
+          <div class="product-name">REGINA Short Sleeve Crop Top</div>
+          <div class="product-price">₱100</div>
+          <div class="product-color">
+            Color: 
+            <span class="option1-circle" onclick="selectColor(this, 'brown')"></span>
+            <span class="option2-circle" onclick="selectColor(this, 'black')"></span>
+            <span class="option3-circle" onclick="selectColor(this, 'white')"></span>
+          </div>
+          <div class="product-size">
+            <span class="size-label">Size:</span>
+            <button class="size-option" onclick="selectSize(this, 'XS')">XS</button>
+            <button class="size-option" onclick="selectSize(this, 'S')">S</button>
+            <button class="size-option" onclick="selectSize(this, 'M')">M</button>
+            <button class="size-option" onclick="selectSize(this, 'L')">L</button>
+            <button class="size-option" onclick="selectSize(this, 'XL')">XL</button>
+          </div>
+          <div class="product-quantity">Quantity: 
+            <input type="number" id="quantity1" min="0" required>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('REGINA Short Sleeve Crop Top', 100, 1)">Add to Cart</button>
+        </td>
+        <td class="product">
+            <img src="s2.png" alt="Product Image" class="product-image">
+            <div class="product-name">ARYA Tank Top</div>
+            <div class="product-price">₱140</div>
+            <div class="product-color">
+              Color: 
+              <span class="option1-circle" onclick="selectColor(this, 'brown')"></span>
+              <span class="option2-circle" onclick="selectColor(this, 'black')"></span>
+              <span class="option3-circle" onclick="selectColor(this, 'white')"></span>
+            </div>
+            <div class="product-size">
+              <span class="size-label">Size:</span>
+              <button class="size-option xs" onclick="selectSize(this, 'XS')">XS</button>
+              <button class="size-option s" onclick="selectSize(this, 'S')">S</button>
+              <button class="size-option m" onclick="selectSize(this, 'M')">M</button>
+              <button class="size-option l" onclick="selectSize(this, 'L')">L</button>
+              <button class="size-option xl" onclick="selectSize(this, 'XL')">XL</button>
+          </div>
+            <div class="product-quantity">Quantity: 
+              <input type="number" id="quantity2" min="0" required>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('ARYA Tank Top', 140, 2)">Add to Cart</button>
+        </td>
+        <td class="product">
+            <img src="s5.png" alt="Product Image" class="product-image">
+            <div class="product-name">ALEXA Long Sleeve T-Shirt</div>
+            <div class="product-price">₱250</div>
+            <div class="product-color">
+              Color: 
+              <span class="option1-circle" onclick="selectColor(this, 'brown')"></span>
+              <span class="option2-circle" onclick="selectColor(this, 'black')"></span>
+              <span class="option3-circle" onclick="selectColor(this, 'white')"></span>
+            </div>
+            <div class="product-size">
+              <span class="size-label">Size:</span>
+              <button class="size-option xs" onclick="selectSize(this, 'XS')">XS</button>
+              <button class="size-option s" onclick="selectSize(this, 'S')">S</button>
+              <button class="size-option m" onclick="selectSize(this, 'M')">M</button>
+              <button class="size-option l" onclick="selectSize(this, 'L')">L</button>
+              <button class="size-option xl" onclick="selectSize(this, 'XL')">XL</button>
+          </div>
+            <div class="product-quantity">Quantity: 
+              <input type="number" id="quantity3" min="0" required>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('ALEXA Long Sleeve T-Shirt', 250, 3)">Add to Cart</button>
+        </td>
+    </tr>
+    <tr>
+      <td class="product">
+          <img src="s6.png" alt="Product Image" class="product-image">
+          <div class="product-name">ORLANDA Long Sleeve Crop Top</div>
+          <div class="product-price">₱140</div>
+          <div class="product-color">
+            Color: 
+            <span class="option1-circle" onclick="selectColor(this, 'brown')"></span>
+            <span class="option2-circle" onclick="selectColor(this, 'black')"></span>
+            <span class="option3-circle" onclick="selectColor(this, 'white')"></span>
+          </div>
+          <div class="product-size">
+            <span class="size-label">Size:</span>
+            <button class="size-option xs" onclick="selectSize(this, 'XS')">XS</button>
+            <button class="size-option s" onclick="selectSize(this, 'S')">S</button>
+            <button class="size-option m" onclick="selectSize(this, 'M')">M</button>
+            <button class="size-option l" onclick="selectSize(this, 'L')">L</button>
+            <button class="size-option xl" onclick="selectSize(this, 'XL')">XL</button>
+        </div>
+          <div class="product-quantity">Quantity: 
+            <input type="number" id="quantity4" min="0" required>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('ORLANDA Long Sleeve Crop Top', 140, 4)">Add to Cart</button>
+      </td>
+      <td class="product">
+          <img src="s3.png" alt="Product Image" class="product-image">
+          <div class="product-name">MATILDA Halter Top</div>
+          <div class="product-price">₱190</div>
+          <div class="product-color">
+            Color: 
+            <span class="option1-circle" onclick="selectColor(this, 'brown')"></span>
+            <span class="option2-circle" onclick="selectColor(this, 'black')"></span>
+            <span class="option3-circle" onclick="selectColor(this, 'white')"></span>
+          </div>
+          <div class="product-size">
+            <span class="size-label">Size:</span>
+            <button class="size-option xs" onclick="selectSize(this, 'XS')">XS</button>
+            <button class="size-option s" onclick="selectSize(this, 'S')">S</button>
+            <button class="size-option m" onclick="selectSize(this, 'M')">M</button>
+            <button class="size-option l" onclick="selectSize(this, 'L')">L</button>
+            <button class="size-option xl" onclick="selectSize(this, 'XL')">XL</button>
+        </div>
+          <div class="product-quantity">Quantity: 
+            <input type="number" id="quantity5" min="0" required>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('MATILDA Halter Top', 190, 5)">Add to Cart</button>
+      </td>
+      <td class="product">
+          <img src="s1.png" alt="Product Image" class="product-image">
+          <div class="product-name">RENATA Short Sleeve T-Shirt</div>
+          <div class="product-price">₱170</div>
+          <div class="product-color">
+            Color: 
+            <span class="option1-circle" onclick="selectColor(this, 'brown')"></span>
+            <span class="option2-circle" onclick="selectColor(this, 'black')"></span>
+            <span class="option3-circle" onclick="selectColor(this, 'white')"></span>
+          </div>
+          <div class="product-size">
+            <span class="size-label">Size:</span>
+            <button class="size-option xs" onclick="selectSize(this, 'XS')">XS</button>
+            <button class="size-option s" onclick="selectSize(this, 'S')">S</button>
+            <button class="size-option m" onclick="selectSize(this, 'M')">M</button>
+            <button class="size-option l" onclick="selectSize(this, 'L')">L</button>
+            <button class="size-option xl" onclick="selectSize(this, 'XL')">XL</button>
+        </div>
+          <div class="product-quantity">Quantity: 
+            <input type="number" id="quantity6" min="0" required>
+          </div>
+          <button class="add-to-cart" onclick="addToCart('RENATA Short Sleeve T-Shirt', 170, 6)">Add to Cart</button>
+      </td>
+     </tr>
+    </table>
+  </center>
+
+  <script>
+    let selectedColors = {};
+    let selectedSizes = {};
+
+    function selectColor(element, color) {
+      const parent = element.closest('.product');
+      const productName = parent.querySelector('.product-name').innerText;
+      selectedColors[productName] = color;
+      Array.from(parent.querySelectorAll('.option1-circle, .option2-circle, .option3-circle')).forEach(el => {
+        el.style.boxShadow = '';
+      });
+      element.style.boxShadow = '0 0 10px #000';
+    }
+
+    function selectSize(element, size) {
+      const parent = element.closest('.product');
+      const productName = parent.querySelector('.product-name').innerText;
+      selectedSizes[productName] = size;
+      Array.from(parent.querySelectorAll('.size-option')).forEach(el => {
+        el.style.backgroundColor = '#E0DDD7';
+        el.style.color = '#000';
+      });
+      element.style.backgroundColor = '#333';
+      element.style.color = '#fff';
+    }
+
+    function addToCart(productName, price, productNumber) {
+      const quantity = parseInt(document.getElementById(`quantity${productNumber}`).value);
+      const color = selectedColors[productName];
+      const size = selectedSizes[productName];
+
+      if (!color || !size || isNaN(quantity) || quantity <= 0) {
+        alert('Please select a color, size, and a valid quantity.');
+        return;
+      }
+
+      const cartItem = {
+        productName,
+        price: parseFloat(price),
+        color,
+        size,
+        quantity
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(cartItem);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert(`Added ${quantity} x ${productName} (${color}, ${size}) to the cart.`);
+    }
+  </script>
+</body>
+</html>
